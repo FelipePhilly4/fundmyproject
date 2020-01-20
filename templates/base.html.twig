@@ -3,7 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" href="assets/css/app.scss">
+        <title>{% block title %}Fund My Project - Accueil{% endblock %}</title>
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
@@ -43,7 +44,16 @@
             </div>
         </header>
 
-        {% block body %}{% endblock %}
+        <main>
+            {% block body %}{% endblock %}
+        </main>
+
+        <footer class="page-footer">
+            <div class="container">
+                <i class="fa fa-copyright"></i> Fund My Project 2020
+            </div>
+        </footer>
+
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
