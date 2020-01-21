@@ -47,7 +47,7 @@ class UserFixtures extends Fixture
         $maria->setRoles(["ROLE_USER"]);
         $manager->persist($maria);
 
-        
+
         // $product = new Product();
         // $manager->persist($product);
 
