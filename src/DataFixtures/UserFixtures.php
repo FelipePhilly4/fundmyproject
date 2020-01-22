@@ -37,6 +37,7 @@ class UserFixtures extends Fixture
         $jack->setEmail("lorem@mail.com");
         $jack->setPassword($this->encoder->encodePassword($jack,"lorem"));
         $jack->setRoles(["ROLE_USER"]);
+        $this->setReference("Jack", $jack);
         $manager->persist($jack);
 
         $maria = new User();
@@ -45,6 +46,7 @@ class UserFixtures extends Fixture
         $maria->setEmail("ipsum@mail.com");
         $maria->setPassword($this->encoder->encodePassword($maria,"ipsum"));
         $maria->setRoles(["ROLE_USER"]);
+        $this->setReference("Maria", $maria);
         $manager->persist($maria);
 
 

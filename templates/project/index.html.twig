@@ -3,43 +3,31 @@
 {% block title %}Project index{% endblock %}
 
 {% block body %}
-    <h1>Project index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Image</th>
-                <th>Excerpt</th>
-                <th>Description</th>
-                <th>Goal</th>
-                <th>CreatedAt</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for project in projects %}
-            <tr>
-                <td>{{ project.id }}</td>
-                <td>{{ project.name }}</td>
-                <td>{{ project.image }}</td>
-                <td>{{ project.excerpt }}</td>
-                <td>{{ project.description }}</td>
-                <td>{{ project.goal }}</td>
-                <td>{{ project.createdAt ? project.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>
-                    <a href="{{ path('project_show', {'id': project.id}) }}">show</a>
-                    <a href="{{ path('project_edit', {'id': project.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="8">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('project_new') }}">Create new</a>
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <img src="uploads/project1.jpg" alt="Good Girl" class="img-fluid">
+            </div>
+            <div class="col-8">
+                <h1>Good Girl</h1>
+                <ul class="badges">
+                    <li><a href="category.html" class="badge badge-pill badge-primary">Film</a></li>
+                </ul>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium amet at aut blanditiis corporis culpa deleniti dignissimos eos ex facilis inventore iusto laudantium odit, quibusdam rerum, sapiente sequi temporibus.</p>
+            </div>
+        </div>
+        <div class="goal">Objectif : 5500€</div>
+        <div class="progress">
+            <div class="progress-bar bg-info" style="width: 18%">1000€</div>
+        </div>
+        <form>
+            <div class="form-group">
+                <input type="number" value="10" placeholder="Montant">
+                <button type="submit" class="btn btn-success">
+                    <i class="fa fa-money"></i>
+                    Je donne !
+                </button>
+            </div>
+        </form>
+    </div>
 {% endblock %}

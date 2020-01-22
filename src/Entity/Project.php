@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ProjectRepository")
+ * @ORM\HasLifecycleCallbacks
  */
 class Project
 {
@@ -55,7 +56,7 @@ class Project
     private $categories;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Contribution", mappedBy="project", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\Contribution", mappedBy="project_id", orphanRemoval=true)
      */
     private $contributions;
 
@@ -134,6 +135,7 @@ class Project
 
         return $this;
     }
+
 
     public function getUser(): ?User
     {
@@ -214,5 +216,13 @@ class Project
         $this->createdAt = $createdAt;
 
         return $this;
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function prePersist()
+    {
+        $this->setCreatedAt(new \DateTime());
     }
 }

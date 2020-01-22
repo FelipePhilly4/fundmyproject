@@ -1,6 +1,7 @@
 <?php
 
 namespace App\DataFixtures;
+
 use App\Entity\Category;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -10,7 +11,7 @@ class CategoryFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $film = new Category();
-        $film->setName("Good Girl");
+        $film->setName("Film");
         $manager->persist($film);
         $this->addReference("category-film", $film);
 
@@ -20,14 +21,15 @@ class CategoryFixtures extends Fixture
         $this->addReference("category-sport", $sport);
 
         $jeux = new Category();
-        $jeux->setName("Dabado");
+        $jeux->setName("Jeux");
         $manager->persist($jeux);
         $this->addReference("category-jeux", $jeux);
 
         $musique = new Category();
-        $musique->setName("Doosh");
-        $manager->persist($film);
+        $musique->setName("Musique");
+        $manager->persist($musique);
         $this->addReference("category-musique", $musique);
+
         // $product = new Product();
         // $manager->persist($product);
 
