@@ -49,6 +49,15 @@ class UserFixtures extends Fixture
         $this->setReference("Maria", $maria);
         $manager->persist($maria);
 
+        $norma = new User();
+        $norma->setFirstname("Norma");
+        $norma->setLastname("Pedric");
+        $norma->setEmail("norma@mail.com");
+        $norma->setPassword($this->encoder->encodePassword($norma,"norma"));
+        $norma->setRoles(["ROLE_USER"]);
+        $this->setReference("Norma", $norma);
+        $manager->persist($norma);
+
 
         // $product = new Product();
         // $manager->persist($product);
