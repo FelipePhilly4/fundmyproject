@@ -13,7 +13,7 @@
         <header class="page-header">
             <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
                 <div class="container">
-                    <a href="index.html" class="navbar-brand">Fund My Project</a>
+                    <a href="{{ path('homepage') }}" class="navbar-brand">Fund My Project</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -23,7 +23,7 @@
                                 <a class="nav-link" href="{{ path('project_index') }}">Les Projets</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="download">Catégories <span class="caret"></span></a>
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="{{ path('category_index') }}" id="download">Catégories <span class="caret"></span></a>
                                 <div class="dropdown-menu" aria-labelledby="download">
                                     <a class="dropdown-item" href="category.html">Sport</a>
                                     <a class="dropdown-item" href="category.html">Musique</a>
@@ -32,10 +32,17 @@
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="login.html">
-                                    <i class="fa fa-sign-in"></i>
+                                {% if app.user %}
+                            <li class="nav-item"><a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a></li>
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <li class="nav-item"><a class="nav-link" href="{{ path('easyadmin') }}">Administration</a></li>
+                            {% endif %}
+                            {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('app_login') }}"><i class="fa fa-sign-in"></i>
                                     Me connecter
                                 </a>
+                                {% endif %}
                             </li>
                         </ul>
                     </div>

@@ -26,7 +26,7 @@ class ProjectController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="project_new", methods={"GET","POST"})
+     * @Route("/", name="project_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
