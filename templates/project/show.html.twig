@@ -11,7 +11,8 @@
                 </div>
                 <div class="col-8">
                     <h1>{{ project.name }}</h1>
-                    <p>Projet créé le : </p>
+                    <p>Projet créé le : {{ project.createdAt|date('d-m-Y') }}</p>
+                    <p>Projet créé par : {{ project.user.firstname }}</p>
                     <ul class="badges">
                         {% for category in project.categories %}
                             <li><a class="badge badge-pill badge-primary" href="{{ path('category_show' , {'id':category.id}) }}">{{ category.name }}</a></li>
@@ -33,6 +34,16 @@
                     </button>
                 </div>
             </form>
+            <ul>
+                {% for contribution in project.contributions %}
+                <li>
+
+                        {{ contribution.amount }}
+
+
+                </li>
+                {% endfor %}
+            </ul>
         </div>
     </main>
 {% endblock %}

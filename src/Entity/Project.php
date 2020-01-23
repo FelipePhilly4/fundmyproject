@@ -56,7 +56,7 @@ class Project
     private $categories;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Contribution", mappedBy="project_id", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\Contribution", mappedBy="project", orphanRemoval=true)
      */
     private $contributions;
 
