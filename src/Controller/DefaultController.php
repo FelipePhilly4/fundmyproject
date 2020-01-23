@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Category;
 use App\Entity\Contribution;
 use App\Entity\Project;
+use App\Entity\SocialNetwork;
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -29,4 +30,14 @@ class DefaultController extends AbstractController
             'users'=> $users
         ]);
     }
+    public function headerCategories()
+    {
+        $categories = $this->getDoctrine()->getRepository(Category::class)->findAll();
+
+        return $this->render('default/_thumbnail.html.twig',[
+            'categories' => $categories,
+        ]);
+    }
 }
+
+
