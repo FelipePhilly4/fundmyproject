@@ -10,9 +10,10 @@
             {% for project in projects %}
                 <article class="col-4">
                     <div class="card">
-                        <img src="{{ asset('uploads/' ~ project.image) }}" class="card-img-top" alt="{{ project.name }}">
+                        <img src="{{ asset('uploads/' ~ project.image) }}" class="card-img-top"
+                             alt="{{ project.name }}">
                         <div class="card-body">
-                            <h5 class="card-title">{{ project.name }}</h5>
+                            <h5 class="card-title">"{{ project.name }}"</h5>
                             <ul class="badges">
                                 {% for category in project.categories %}
                                     <li><a href="{{ path('category_show', {'id': category.id}) }}" class="badge badge-pill badge-primary">{{ category.name }}</a></li>
@@ -23,7 +24,8 @@
                                     <span>{{ project.excerpt }}</span>
                                 {% endfor %}
                             </p>
-                            <a href="{{ path('project_show', {'id': project.id}) }}" class="btn btn-primary"><i class="fa fa-eye"></i>Voir plus</a>
+                            <a href="{{ path('project_show', {'id': project.id}) }}" class="btn btn-primary"><i
+                                        class="fa fa-eye"></i>Voir plus</a>
                         </div>
                     </div>
                 </article>

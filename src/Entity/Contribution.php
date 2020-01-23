@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use phpDocumentor\Reflection\DocBlock\Tags\Return_;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ContributionRepository")
@@ -72,6 +73,12 @@ class Contribution
         $this->user = $user;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getUser();
+        // TODO: Implement __toString() method.
     }
 
 }
