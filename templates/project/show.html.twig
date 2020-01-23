@@ -11,6 +11,7 @@
                 </div>
                 <div class="col-8">
                     <h1>{{ project.name }}</h1>
+                    <p>Projet créé le : </p>
                     <ul class="badges">
                         {% for category in project.categories %}
                             <li><a class="badge badge-pill badge-primary" href="{{ path('category_show' , {'id':category.id}) }}">{{ category.name }}</a></li>
